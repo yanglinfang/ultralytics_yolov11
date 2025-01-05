@@ -73,10 +73,15 @@ For alternative installation methods including [Conda](https://anaconda.org/cond
 <summary>Usage</summary>
 
 ### Docker
+
 First build docker 
 `docker build -t yolov11-gpu .`
-then run 
-`docker run -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
+
+then run with gpu enabled: 
+`docker run --gpus all -it --shm-size=7g -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
+
+without gpu, just using cpu 
+`docker run  -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
 
 ### CLI
 
