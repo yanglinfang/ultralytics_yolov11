@@ -19,17 +19,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install PyTorch with CUDA support
 RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
-# Clone YOLOv11 repository
-RUN git clone https://github.com/ultralytics/ultralytics.git /ultralytics
-
 # Set working directory
 WORKDIR /ultralytics
 
+# Clone YOLOv11 repository
+COPY . /ultralytics
+
 # Install YOLOv11 dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install jupyter ipython
 
 # Expose default ports for training logs (if needed)
-EXPOSE 6006 5000
+EXPOSE 6006
 
 # Entry point for running scripts
-CMD ["python3"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=6006", "--no-browser", "--allow-root"]
