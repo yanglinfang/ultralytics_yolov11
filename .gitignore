@@ -171,3 +171,5 @@ pnnx*
 
 # calibration image
 calibration_*.npy
+train_dataset/labels/train.cache
+train_dataset/labels/val.cache
