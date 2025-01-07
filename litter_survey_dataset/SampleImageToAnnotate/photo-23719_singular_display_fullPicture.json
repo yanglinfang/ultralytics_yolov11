@@ -15,6 +15,24 @@
       "shape_type": "point",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "Grabber",
+      "points": [
+        [
+          1189.576923076923,
+          2047.4615384615386
+        ],
+        [
+          1381.8846153846155,
+          2218.6153846153848
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "photo-23719_singular_display_fullPicture.jpeg",
