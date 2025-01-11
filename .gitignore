@@ -171,5 +171,10 @@ pnnx*
 
 # calibration image
 calibration_*.npy
+train_dataset/images/
+train_dataset/labels/
 train_dataset/labels/train.cache
 train_dataset/labels/val.cache
+litter_survey_dataset/Annotation*
+litter_survey_dataset/SampleImageToAnnotate/*_resized.jpeg
+litter_survey_dataset/SampleImageToAnnotate/*_resized.txt
