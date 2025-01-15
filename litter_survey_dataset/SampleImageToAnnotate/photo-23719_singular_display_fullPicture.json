@@ -33,6 +33,24 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "Litter-small-Beverage Containers - Plastic",
+      "points": [
+        [
+          1208.8076923076924,
+          2020.5384615384614
+        ],
+        [
+          1403.0384615384617,
+          2245.5384615384614
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "photo-23719_singular_display_fullPicture.jpeg",

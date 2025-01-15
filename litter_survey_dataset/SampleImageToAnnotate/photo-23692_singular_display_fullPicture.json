@@ -33,6 +33,24 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "Litter-small-Beverage Containers - Alumnium",
+      "points": [
+        [
+          1539.1132075471696,
+          1850.7075471698113
+        ],
+        [
+          1739.1132075471696,
+          1994.1037735849056
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "photo-23692_singular_display_fullPicture.jpeg",

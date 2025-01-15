@@ -33,6 +33,24 @@
       "shape_type": "rectangle",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "Litter-small-Beverage Containers - paper",
+      "points": [
+        [
+          1343.9148936170213,
+          2008.5531914893618
+        ],
+        [
+          1652.4255319148938,
+          2425.574468085106
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "photo-1007_singular_display_fullPicture.jpeg",
