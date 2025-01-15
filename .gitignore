@@ -178,3 +178,4 @@ train_dataset/labels/val.cache
 litter_survey_dataset/Annotation*
 litter_survey_dataset/SampleImageToAnnotate/*_resized.jpeg
 litter_survey_dataset/SampleImageToAnnotate/*_resized.txt
+litter_survey_dataset/SampleVideoToAnnotate/*
