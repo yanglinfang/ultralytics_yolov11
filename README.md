@@ -84,7 +84,7 @@ without gpu, just using cpu
 `docker run  -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
 
 if your docker stopped, you can restart the same container by running 
-`docker start -ai yolov11`
+`docker start -ai yolov11_latest`
 ### CLI
 
 YOLO may be used directly in the Command Line Interface (CLI) with a `yolo` command:
