@@ -1,6 +1,19 @@
 # --- 基础镜像：devel → runtime（体积更小） ---
 FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
+# Set environment variables for Python and CUDA
 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/opt/conda/bin:$PATH"
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.10 python3-pip python3-dev \
+    wget git curl \
+    libgl1-mesa-glx libglib2.0-0 && \
+    rm -rf /var/lib/apt/lists/*
+    
 # --- APT 缓存加速，装 Python 3.10 ---
 RUN --mount=type=cache,target=/var/cache/apt \
     apt-get update && \
