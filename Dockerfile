@@ -1,7 +1,9 @@
-# --- 基础镜像：devel → runtime（体积更小） ---
-FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
-# Set environment variables for Python and CUDA
+# Dockerfile
 
+# Use NVIDIA CUDA base image with PyTorch support
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+
+# Set environment variables for Python and CUDA
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -13,20 +15,22 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget git curl \
     libgl1-mesa-glx libglib2.0-0 && \
     rm -rf /var/lib/apt/lists/*
-    
-# --- APT 缓存加速，装 Python 3.10 ---
-RUN --mount=type=cache,target=/var/cache/apt \
-    apt-get update && \
-    apt-get install -y --no-install-recommends python3.10 python3-pip git && \
-    rm -rf /var/lib/apt/lists/*
 
-# --- 一次性装 cu118 轮子 + vLLM ---
-RUN pip install --no-cache-dir \
-        torch==2.1.0+cu118 torchvision==0.16.0+cu118 \
-        --extra-index-url https://download.pytorch.org/whl/cu118 && \
-    pip install --no-cache-dir vllm[cu118]
+# Install PyTorch with CUDA support
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
-# ---------- Entrypoint ----------
-ENTRYPOINT ["python", "-m", "vllm.entrypoints.openai.api_server"]
-# 多行 CMD 写完别漏右括号
-CMD ["--model", "deepseek-10b-awq", "--tokenizer", "deepseek-10b-awq", "--port", "8000", "--concurrency", "16", "--max-batch-tokens", "8192", "--log-dir", "vllm_logs"]
+# Set working directory
+WORKDIR /ultralytics
+
+# Clone YOLOv11 repository
+COPY . /ultralytics
+
+# Install YOLOv11 dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install jupyter ipython
+
+# Expose default ports for training logs (if needed)
+EXPOSE 6006
+
+# Entry point for running scripts
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=6006", "--no-browser", "--allow-root"]
