@@ -13,7 +13,7 @@ cache: false
 device: cuda
 workers: 8
 project: null
-name: train2
+name: train5
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -103,4 +103,4 @@ erasing: 0.4
 crop_fraction: 1.0
 cfg: null
 tracker: botsort.yaml
-save_dir: /ultralytics/runs/detect/train2
+save_dir: /ultralytics/runs/detect/train5
