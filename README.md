@@ -78,7 +78,7 @@ First build docker
 `docker build -t yolov11-gpu .`
 
 then run with gpu enabled: 
-`docker run --gpus all -it --shm-size=7g --name yolov11_latest -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
+`docker run --gpus all -it --shm-size=7g --name yolov11_latest_0501 -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
 
 without gpu, just using cpu 
 `docker run  -p 6006:6006 -v ${PWD}:/app yolov11-gpu:latest`
